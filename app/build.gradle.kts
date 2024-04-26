@@ -13,8 +13,21 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                argument("includeCompileClasspath", "true")
+
+            }
+        }
+        /*javaCompileOptions {
+            annotationProcessorOptions {
+                argument("includeCompileClasspath", "false")
+            }
+        }
+*/    }
 
     buildTypes {
         release {
@@ -32,7 +45,12 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    lint {
+        checkReleaseBuilds = false
+    }
 }
+
 
 dependencies {
 
@@ -45,23 +63,34 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    implementation ("androidx.lifecycle:lifecycle-common-java8:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.7.0")
 
     //Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation ("com.squareup.okhttp3:okhttp:3.14.9")
-    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation ("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
-    implementation ("com.squareup.okhttp3:okhttp:3.14.9")
-    implementation ("com.squareup.okhttp3:logging-interceptor:3.14.9")
-    implementation ("com.google.code.gson:gson:2.10")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.okhttp3:okhttp:3.14.9")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
+    implementation("com.squareup.okhttp3:okhttp:3.14.9")
+    implementation("com.squareup.okhttp3:logging-interceptor:3.14.9")
+    implementation("com.google.code.gson:gson:2.10.1")
 
     //RxJava
-    implementation ("io.reactivex.rxjava3:rxjava:3.1.8")
+    implementation("io.reactivex.rxjava3:rxjava:3.1.8")
+
 
     //Dagger
-    implementation ("com.google.dagger:dagger:2.28.3")
-    annotationProcessor ("com.google.dagger:dagger-compiler:2.28.3")
-    implementation ("com.google.dagger:dagger-android:2.28.3")
+    implementation("com.google.dagger:dagger:2.28.3")
+    annotationProcessor("com.google.dagger:dagger-compiler:2.28.3")
+
+    implementation("com.google.dagger:dagger-android:2.28.3")
+    implementation("com.google.dagger:dagger-android-support:2.28.3")
+    annotationProcessor("com.google.dagger:dagger-android-processor:2.28.3")
+    // implementation ("androidx.annotation:annotation:1.1.0")
+
+    // Dagger Android
+    //implementation ("com.google.dagger:dagger-android:28.3")
+    //implementation ("com.google.dagger:dagger-android-support:2")
+    //implementation ("com.google.dagger:dagger-android-processor:3")
+
 
 }

@@ -3,6 +3,7 @@ package com.example.cleanlogin.di;
 import android.app.Application;
 
 import com.example.cleanlogin.AndroidApp;
+import com.example.cleanlogin.ui.login.LoginActivity;
 
 import javax.inject.Singleton;
 
@@ -12,7 +13,12 @@ import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
 
 @Singleton
-@Component(modules = {AndroidInjectionModule.class, NetworkModule.class})
+@Component(modules = {
+        AndroidInjectionModule.class,
+        ActivityBuildersModule.class,
+        NetworkModule.class,
+        ViewModelFactoryModule.class
+})
 public interface AppComponent extends AndroidInjector<AndroidApp> {
 
     @Component.Builder
@@ -23,5 +29,5 @@ public interface AppComponent extends AndroidInjector<AndroidApp> {
         AppComponent build();
     }
 
-    //void inject(AndroidApp app);
+    //void inject(LoginActivity loginActivity);
 }
