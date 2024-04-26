@@ -15,6 +15,7 @@ public class LoginUseCase {
     @Inject
     public LoginUseCase(LoginRepository repository) {
         this.repository = repository;
+
     }
 
     public Observable<Root> login(String username, String password) {
